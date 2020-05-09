@@ -18,12 +18,30 @@
     <ClInclude Include="pch.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Movie.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Rental.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Customer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="MovieRentalShopManagSystem.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Movie.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Rental.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Customer.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

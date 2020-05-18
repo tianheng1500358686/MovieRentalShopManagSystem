@@ -29,14 +29,11 @@ std::string Customer::statement()
 	std::string result = "Rental record for " + getName() + "\n";
 	for (auto & aRental : m_rentals)
 	{
-		//计算费用
-		double thisAmount = 0;
-		thisAmount = aRental.getCharge();
 		//计算积分
 		frequentRenterPoints += aRental.getFrequentRenterPoints();
 		
-		result += "\t" + aRental.getMovie().getTitle() + "\t" + convertToString(thisAmount) + "\n";
-		totalAmount += thisAmount;
+		result += "\t" + aRental.getMovie().getTitle() + "\t" + convertToString(aRental.getCharge()) + "\n";
+		totalAmount += aRental.getCharge();
 	}
 	result += "Amount owed is " + convertToString(totalAmount) + "\n";
 	result += "You earned " + convertToString(frequentRenterPoints) + " freuent renter points";

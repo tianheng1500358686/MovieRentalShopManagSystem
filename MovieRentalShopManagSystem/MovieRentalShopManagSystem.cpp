@@ -21,4 +21,15 @@ int main()
 	customerPtr->addRental(rental2);
 	customerPtr->addRental(rental3);
     std::cout << customerPtr->statement();
+	std::string strText = customerPtr->statement();
+	std::string strOut = "Rental record for teacher tian\n\tKung Fu Panda	7.5\n\tWar wolf	2\n\tAvatar 2	12\nAmount owed is 21.5\n"
+		"You earned 4 freuent renter points";
+	if(strText == strOut)
+	{
+		std::cout << "\ntest result: OK";
+	} 
+	else
+	{
+		std::cout << "\ntest result: Error";
+	}
 }

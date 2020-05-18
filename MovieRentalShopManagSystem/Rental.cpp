@@ -11,12 +11,12 @@ Rental::~Rental()
 {
 }
 
-Movie Rental::getMovie()
+Movie Rental::getMovie() const
 {
 	return m_movie;
 }
 
-int Rental::getDaysRented()
+int Rental::getDaysRented() const
 {
 	return m_nDaysRented;
 }

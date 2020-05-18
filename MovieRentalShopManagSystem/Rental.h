@@ -15,8 +15,8 @@ public:
 	Rental(Movie movie, int daysRented);
 	~Rental();
 
-	Movie getMovie();
-	int getDaysRented();
+	Movie getMovie() const;
+	int getDaysRented() const;
 private:
 	int m_nDaysRented;
 	Movie m_movie;

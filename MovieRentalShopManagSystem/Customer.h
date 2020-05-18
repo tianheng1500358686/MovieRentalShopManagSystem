@@ -31,6 +31,7 @@ private:
 		ss << value;
 		return ss.str();
 	}
+	double amountFor(const Rental & each);
 private:
 	std::string m_strName;
 	std::vector<Rental> m_rentals;

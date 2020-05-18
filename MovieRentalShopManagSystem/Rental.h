@@ -17,6 +17,7 @@ public:
 
 	Movie getMovie() const;
 	int getDaysRented() const;
+	double getCharge();
 private:
 	int m_nDaysRented;
 	Movie m_movie;

@@ -1,7 +1,6 @@
 #include "pch.h"
 #include "Rental.h"
 
-
 Rental::Rental(Movie movie, int daysRented)
 {
 	m_movie = movie;

@@ -2,8 +2,6 @@
 #include "Customer.h"
 #include "Movie.h"
 
-#include <sstream>
-
 Customer::Customer(const std::string & name)
 {
 	m_strName = name;
@@ -63,26 +61,13 @@ std::string Customer::statement()
 		{
 			frequentRenterPoints++;
 		}
-		
-		std::stringstream streamThisAmount;
-		std::string strThisAmount;
-		streamThisAmount << thisAmount;
-		streamThisAmount >> strThisAmount;
-		result += "\t" + each.getMovie().getTitle() + "\t" + strThisAmount + "\n";
+		result += "\t" + each.getMovie().getTitle() + "\t" + convertToString(thisAmount) + "\n";
 		totalAmount += thisAmount;
 	}
-
-	std::stringstream streamTotalAmount;
-	std::string strTotalAmount;
-	streamTotalAmount << totalAmount;
-	streamTotalAmount >> strTotalAmount;
-	result += "Amount owed is " + strTotalAmount + "\n";
-
-	std::stringstream streamFrequentRenterPoints;
-	std::string strFrequentRenterPoints;
-	streamFrequentRenterPoints << frequentRenterPoints;
-	streamFrequentRenterPoints >> strFrequentRenterPoints;
-	result += "You earned " + strFrequentRenterPoints + " freuent renter points";
+	result += "Amount owed is " + convertToString(totalAmount) + "\n";
+	result += "You earned " + convertToString(frequentRenterPoints) + " freuent renter points";
 	
 	return result;
 }
+
+

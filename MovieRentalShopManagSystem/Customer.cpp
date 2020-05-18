@@ -33,12 +33,8 @@ std::string Customer::statement()
 		double thisAmount = 0;
 		thisAmount = aRental.getCharge();
 		//¼ÆËã»ý·Ö
-		frequentRenterPoints++;
-		if ((aRental.getMovie().getPriceCode() == Movie::NEW_RELEASE) &&
-			(aRental.getDaysRented() > 1))
-		{
-			frequentRenterPoints++;
-		}
+		frequentRenterPoints += aRental.getFrequentRenterPoints();
+		
 		result += "\t" + aRental.getMovie().getTitle() + "\t" + convertToString(thisAmount) + "\n";
 		totalAmount += thisAmount;
 	}

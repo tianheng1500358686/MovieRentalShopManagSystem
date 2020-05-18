@@ -27,19 +27,19 @@ std::string Customer::statement()
 	double totalAmount = 0;
 	int frequentRenterPoints = 0;
 	std::string result = "Rental record for " + getName() + "\n";
-	for (auto & each : m_rentals)
+	for (auto & aRental : m_rentals)
 	{
 		//计算费用
 		double thisAmount = 0;
-		thisAmount = amountFor(each);
+		thisAmount = amountFor(aRental);
 		//计算积分
 		frequentRenterPoints++;
-		if ((each.getMovie().getPriceCode() == Movie::NEW_RELEASE) &&
-			(each.getDaysRented() > 1))
+		if ((aRental.getMovie().getPriceCode() == Movie::NEW_RELEASE) &&
+			(aRental.getDaysRented() > 1))
 		{
 			frequentRenterPoints++;
 		}
-		result += "\t" + each.getMovie().getTitle() + "\t" + convertToString(thisAmount) + "\n";
+		result += "\t" + aRental.getMovie().getTitle() + "\t" + convertToString(thisAmount) + "\n";
 		totalAmount += thisAmount;
 	}
 	result += "Amount owed is " + convertToString(totalAmount) + "\n";
@@ -48,31 +48,31 @@ std::string Customer::statement()
 	return result;
 }
 
-double Customer::amountFor(const Rental & each)
+double Customer::amountFor(const Rental & aRental)
 {
-	double thisAmount = 0.0;
-	switch (each.getMovie().getPriceCode())
+	double result = 0.0;
+	switch (aRental.getMovie().getPriceCode())
 	{
 	case Movie::REGULAR:
-		thisAmount += 2;
-		if (each.getDaysRented() > 2)
+		result += 2;
+		if (aRental.getDaysRented() > 2)
 		{
-			thisAmount += (each.getDaysRented() - 1) * 1.5;
+			result += (aRental.getDaysRented() - 1) * 1.5;
 		}
 		break;
 	case Movie::NEW_RELEASE:
-		thisAmount += each.getDaysRented() * 3;
+		result += aRental.getDaysRented() * 3;
 		break;
 	case Movie::CHILDRENS:
-		thisAmount += 1.5;
-		if (each.getDaysRented() > 3)
+		result += 1.5;
+		if (aRental.getDaysRented() > 3)
 		{
-			thisAmount += (each.getDaysRented() - 3)*1.5;
+			result += (aRental.getDaysRented() - 3)*1.5;
 		}
 		break;
 	default:
 		break;
 	}
-	return thisAmount;
+	return result;
 }
 
